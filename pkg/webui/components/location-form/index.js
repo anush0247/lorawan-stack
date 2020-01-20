@@ -80,8 +80,14 @@ class LocationForm extends Component {
 
     this.setState({ error: '' })
 
+    const intValues = {
+      latitude: parseInt(values.latitude),
+      longitude: parseInt(values.longitude),
+      altitude: parseInt(values.altitude),
+      source: values.source,
+    }
     try {
-      await onSubmit(values)
+      await onSubmit(intValues)
       resetForm()
       toast({
         title: entityId,
